@@ -1,0 +1,11 @@
+services:
+  zookeeper:
+    build: ./docker/zookeeper
+
+  kafka:
+    build: ./docker/kafka
+    depends_on:
+      - zookeeper
+
+  postgres:
+    build: ./docker/postgres
