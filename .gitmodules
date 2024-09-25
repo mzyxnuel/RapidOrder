@@ -1,0 +1,3 @@
+[submodule "services/order-service"]
+	path = services/order-service
+	url = https://github.com/mzyxnuel/order-service-rapidorder.git
