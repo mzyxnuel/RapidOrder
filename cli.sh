@@ -5,8 +5,12 @@ git_upt() {
     git submodule foreach git pull
 }
 
-kube() {
+kube_up() {
     kubectl apply -f kubernetes/
+}
+
+kube_down() {
+    kubectl delete -f kubernetes/
 }
 
 dc() {
@@ -26,8 +30,11 @@ case "$1" in
     git-upt)
         git_upt
         ;;
-    kube)
-        kube
+    kubeup)
+        kube_up
+        ;;
+    kubedown)
+        kube_down
         ;;
     dc)
         dc
