@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  labels:
+    app: order-service
+spec:
+  replicas: 2 # Number of desired pods
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: ./services/order-service 
+        ports:
+        - containerPort: 5000 # This is the port the app runs on in the container
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://+:5000" # Ensure your container listens on this port
